@@ -17,12 +17,12 @@ export const styles = StyleSheet.create({
         // width: 287,
     },
     title: {
-        fontSize: 14,
+        fontSize: 16,
         color: '#808080',
         fontWeight: 'bold',
     },
     subtitle: {
-        fontSize: 14,
+        fontSize: 16,
         color: '#808080',
     }
 })

@@ -14,11 +14,13 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: "#0D0D0D",
         paddingTop: 50,
-        paddingBottom: 50,
+        paddingBottom: 70,
     },
     logo: {
-        width: 110,
-        height: 32
+        // width: 120.34,
+        // height: 35,
+        width: 138,
+        height: 40,
     },
     form: {
         width: "100%",
@@ -26,7 +28,7 @@ export const styles = StyleSheet.create({
         marginBottom: 42,
         paddingHorizontal: 24,
         position: 'absolute',
-        top: 105
+        top: 130
     },
     input: {
         flex: 1,
@@ -36,7 +38,8 @@ export const styles = StyleSheet.create({
         color: '#fff',
         padding: 16,
         fontSize: 16,
-        marginRight: 4
+        marginRight: 4,
+        borderWidth: 1
     },
     button: {
         width: 56,
@@ -51,7 +54,7 @@ export const styles = StyleSheet.create({
         height: 16
     },
     containerTasks: {
-        marginTop: 50,
+        marginTop: 60,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -63,12 +66,12 @@ export const styles = StyleSheet.create({
     },
     textCreate: {
         color: '#4EA8DE',
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: 'bold'
     },
     textEnd: {
         color: '#8284FA',
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: 'bold'
     },
     textCount : {
