@@ -5,11 +5,14 @@ import Separator from "../../components/Separator";
 import Task from "../../components/Task";
 import { styles } from "./styles";
 
+interface Task {
+    title: string;
+    done: boolean;
+}
 
 export default function Home() {
     const [todoList, setTodoList] = useState<string[]>(['dasfasd', '3fevv'])
     const [totalConcluidas, setTotalConcluidas] = useState<string[]>([])
-    const [teste, setTeste] = useState(0)
     const [task, setTask] = useState("")
     const [inputSelected, setInputSelected] = useState(false)
 
@@ -22,11 +25,34 @@ export default function Home() {
         setTask('')
     }
 
-    function handlePressTask(nome: string) {
-        console.log(nome)
-        setTotalConcluidas(precState => [...precState, nome])
-        // setTotalConcluidas(prevState => prevState.filter(totalConcluidas => totalConcluidas !== nome))
-       console.log(totalConcluidas)
+    // function handlePressTask(nome: string) {
+    //     setTotalConcluidas(precState => [...precState, nome])
+    //     console.log(totalConcluidas)
+    // }
+    function handleRemoveTask(name: string) {
+        Alert.alert("Remover", `Remover o participante ${name}?`, [
+            {
+                text: 'Sim',
+                onPress: () => {
+                    setTodoList(prevState => prevState.filter(participant => participant !== name))
+                    setTotalConcluidas(prevState => prevState.filter(title => title !== name))
+                }
+            },
+            {
+                text: "Não",
+                style: 'cancel'
+            }
+        ])
+    }
+
+    function handleMarkTaskAsDone(checked: Task) {
+        if(checked.done == true) {
+            console.log("salvar nos concluidos")
+            setTotalConcluidas(precState => [...precState, checked.title])
+        }else {
+            console.log("retira dos concluidos")
+            setTotalConcluidas(prevState => prevState.filter(title => title !== checked.title))
+        }
     }
 
     return (
@@ -58,7 +84,7 @@ export default function Home() {
                 </View>
                 <View style={styles.create}>
                     <Text style={styles.textEnd}>Concluidas</Text>
-                    <Text style={styles.textCount}>{teste}</Text>
+                    <Text style={styles.textCount}>{totalConcluidas.length}</Text>
                 </View>
             </View>
 
@@ -71,15 +97,16 @@ export default function Home() {
                         keyExtractor={item => item}
                         renderItem={({ item }) => (
                             <Task
-                            key={item}
-                            task={item}
-                            onPressTask={() => handlePressTask(item)}
+                                key={item}
+                                taskTitle={item}
+                                onRemove={() => handleRemoveTask(item)}
+                                onPress={handleMarkTaskAsDone}
                             />
-                            )}
-                            showsVerticalScrollIndicator={false}
-                            ListEmptyComponent={() => (
-                                <Empty />
-                                )}
+                        )}
+                        showsVerticalScrollIndicator={false}
+                        ListEmptyComponent={() => (
+                            <Empty />
+                        )}
                     />
                 </View>
 

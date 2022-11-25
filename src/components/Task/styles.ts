@@ -20,7 +20,8 @@ export const styles = StyleSheet.create({
         flex: 1,
         fontSize: 15,
         color: '#F2F2F2',
-        lineHeight: 20
+        lineHeight: 20,
+        // textDecorationLine: 'line-through'
     },
     icone: {
         marginRight: 15

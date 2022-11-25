@@ -4,34 +4,41 @@ import Checkbox from 'expo-checkbox';
 import { styles } from "./styles";
 import { Feather } from '@expo/vector-icons';
 
-type Props = {
-    task: string
-    onPressTask: () => void
+interface Task {
+    title: string;
+    done: boolean;
 }
 
-export default function Task({ task, itemd, onPressTask }: Props) {
-    const [isChecked, setChecked] = useState(false);
-    const [selected, setSelected] = useState([{id: 1, name: 'teste', selected: false}])
+type Props = {
+    taskTitle: string
+    onRemove: () => void
+    onPress: (checked: Task) => void;
+}
 
-    function teste() {
-        setChecked(!isChecked)
-    }
+export default function Task({ taskTitle, onPress, onRemove }: Props) {
+    const [isChecked, setChecked] = useState(false);
 
     function toggle() {
-        console.log(selected)
         setChecked(!isChecked)
+
+        const task: Task = {
+            title: taskTitle,
+            done: !isChecked
+        }
+
+        onPress(task)
     }
 
     return (
-        <TouchableOpacity style={styles.container} onPress={toggle}>
+        <TouchableOpacity style={styles.container} onPress={() => toggle()}>
             <Checkbox
                 style={styles.checkbox}
                 value={isChecked}
-                onValueChange={setChecked}
+                onValueChange={toggle}
                 color={isChecked ? '#5E60CE' : undefined}
             />
-            <Text style={styles.task}>{task}</Text>
-            <TouchableOpacity onPress={() => console.log("clicou")}>
+            <Text style={[styles.task, {textDecorationLine: isChecked ? 'line-through': 'none', color: '#808080'}]}>{taskTitle}</Text>
+            <TouchableOpacity onPress={onRemove}>
                 <Feather style={styles.icone} name="trash-2" size={22} color="#808080" />
             </TouchableOpacity>
         </TouchableOpacity>
