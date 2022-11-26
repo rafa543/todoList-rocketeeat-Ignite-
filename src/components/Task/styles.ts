@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
         backgroundColor: '#262626',
         borderRadius: 8,
         paddingVertical: 16,
-        marginBottom: 8
+        marginBottom: 10
     },
     checkbox: {
         margin: 15,
@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
         fontSize: 15,
         color: '#F2F2F2',
         lineHeight: 20,
-        // textDecorationLine: 'line-through'
     },
     icone: {
         marginRight: 15

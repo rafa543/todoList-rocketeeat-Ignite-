@@ -2,11 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        // flex: 1,
         height: '100%',
-        // paddingTop: 50,
-        // paddingBottom: 80,
-        // paddingHorizontal: 24,
         backgroundColor: "#191919"
     },
     containerLogo: {
@@ -17,8 +13,6 @@ export const styles = StyleSheet.create({
         paddingBottom: 70,
     },
     logo: {
-        // width: 120.34,
-        // height: 35,
         width: 138,
         height: 40,
     },
@@ -62,6 +56,7 @@ export const styles = StyleSheet.create({
     },
     create: {
         flexDirection: 'row',
+        alignItems: 'center',
         marginBottom: 20
     },
     textCreate: {
@@ -79,9 +74,10 @@ export const styles = StyleSheet.create({
         color: '#D9D9D9',
         fontWeight: 'bold',
         fontSize: 12,
+        lineHeight: 20,
         width: 25,
         height: 19,
-        borderRadius: 999,
+        borderRadius: 99,
         textAlign: 'center',
         backgroundColor: '#333333'
     }

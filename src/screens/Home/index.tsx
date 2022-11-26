@@ -11,31 +11,31 @@ interface Task {
 }
 
 export default function Home() {
-    const [todoList, setTodoList] = useState<string[]>(['dasfasd', '3fevv'])
-    const [totalConcluidas, setTotalConcluidas] = useState<string[]>([])
+    const [todoList, setTodoList] = useState<string[]>([])
+    const [completedTasks, setCompletedTasks] = useState<string[]>([])
     const [task, setTask] = useState("")
     const [inputSelected, setInputSelected] = useState(false)
 
     function handleTaskAdd() {
+        if(task === ''){
+            return Alert.alert("Tarefa vazia", "Tarefa não pode ser vazia.") 
+        }
+
         if (todoList.includes(task)) {
-            return Alert.alert("Participante Existe", "Já existe um participante na lista com esse nome.")
+            return Alert.alert("Tarefa já Existe", "Já existe uma tarefa na lista com esse nome.")
         }
 
         setTodoList(precState => [...precState, task])
         setTask('')
     }
 
-    // function handlePressTask(nome: string) {
-    //     setTotalConcluidas(precState => [...precState, nome])
-    //     console.log(totalConcluidas)
-    // }
     function handleRemoveTask(name: string) {
-        Alert.alert("Remover", `Remover o participante ${name}?`, [
+        Alert.alert("Remover", `Remover a tarefa ${name}?`, [
             {
                 text: 'Sim',
                 onPress: () => {
                     setTodoList(prevState => prevState.filter(participant => participant !== name))
-                    setTotalConcluidas(prevState => prevState.filter(title => title !== name))
+                    setCompletedTasks(prevState => prevState.filter(title => title !== name))
                 }
             },
             {
@@ -46,20 +46,17 @@ export default function Home() {
     }
 
     function handleMarkTaskAsDone(checked: Task) {
-        if(checked.done == true) {
-            console.log("salvar nos concluidos")
-            setTotalConcluidas(precState => [...precState, checked.title])
-        }else {
-            console.log("retira dos concluidos")
-            setTotalConcluidas(prevState => prevState.filter(title => title !== checked.title))
+        if (checked.done === true) {
+            setCompletedTasks(precState => [...precState, checked.title])
+        } else {
+            setCompletedTasks(prevState => prevState.filter(title => title !== checked.title))
         }
     }
 
     return (
         <View style={styles.container}>
             <View style={styles.containerLogo}>
-                <Image style={styles.logo} source={require('../../../assets/Logo.png')} />
-
+                <Image style={styles.logo} source={require('../../assets/Logo.png')} />
 
                 <View style={styles.form}>
                     <TextInput
@@ -72,7 +69,7 @@ export default function Home() {
                         onBlur={() => setInputSelected(false)}
                     />
                     <TouchableOpacity style={styles.button} onPress={handleTaskAdd}>
-                        <Image style={styles.adicionarBotao} source={require('../../../assets/plus.png')} />
+                        <Image style={styles.adicionarBotao} source={require('../../assets/plus.png')} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -84,13 +81,16 @@ export default function Home() {
                 </View>
                 <View style={styles.create}>
                     <Text style={styles.textEnd}>Concluidas</Text>
-                    <Text style={styles.textCount}>{totalConcluidas.length}</Text>
+                    <Text style={styles.textCount}>{completedTasks.length}</Text>
                 </View>
             </View>
 
-            <Separator />
+            
+            {
+                todoList.length > 0 ? <></> : <Separator />
+            }
 
-            <View>
+            <View style={{flex: 1}}>
                 <View style={{ marginHorizontal: 24 }}>
                     <FlatList
                         data={todoList}
