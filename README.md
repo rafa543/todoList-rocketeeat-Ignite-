@@ -61,7 +61,7 @@ As funcionalidades foram desenhadas no **[Figma](https://www.figma.com/file/1XfZ
 ## Preview
 
 <h1 align="center">
-   <img src="/github/projeto.gif" alt="App todo telas" />
+   <img src="https://github.com/rafa543/todoList-rocketeeat-Ignite-/blob/main/src/assets/Screenrecorder-2022-11-27-08-38-45-522.gif" alt="App todo telas" />
 </h1>
 
 <!--Layout session-->
