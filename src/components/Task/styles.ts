@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#262626',
         borderRadius: 8,
-        paddingVertical: 16,
+        paddingVertical: 10,
         marginBottom: 10
     },
     checkbox: {

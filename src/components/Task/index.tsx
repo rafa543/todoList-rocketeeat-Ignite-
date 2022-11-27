@@ -37,7 +37,7 @@ export default function Task({ taskTitle, onPress, onRemove }: Props) {
                 onValueChange={toggle}
                 color={isChecked ? '#5E60CE' : undefined}
             />
-            <Text style={[styles.task, { textDecorationLine: isChecked ? 'line-through' : 'none', color: '#808080' }]}>{taskTitle}</Text>
+            <Text style={[styles.task, { textDecorationLine: isChecked ? 'line-through' : 'none', color: isChecked ? '#808080' : "#fff" }]}>{taskTitle}</Text>
             <TouchableOpacity onPress={onRemove}>
                 <Feather style={styles.icone} name="trash-2" size={22} color="#808080" />
             </TouchableOpacity>
