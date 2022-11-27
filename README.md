@@ -1,6 +1,7 @@
 <!--Banner e logo-->
 
 <h1 align="center">
+   <img align="center" src="https://github.com/rafa543/todoList-rocketeeat-Ignite-/blob/main/src/assets/Logo.png"/>
    App To.do
 </h1>
 
