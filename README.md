@@ -10,11 +10,10 @@
       <img alt="Rafael Araujo" src="https://img.shields.io/badge/-Rafael%20Araujo-273FAD?style=flat&logo=Linkedin&logoColor=white" />
    </a>
 
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/JoyceQuerubino/TodoList?color=273FAD">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/rafa543/todoList-rocketeeat-Ignite-?color=273FAD">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/JoyceQuerubino/TodoList?color=273FAD">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/rafa543/todoList-rocketeeat-Ignite-?color=273FAD">
   
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-273FAD">
 </p>
 
 <!-- Indice-->
