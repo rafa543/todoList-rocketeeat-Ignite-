@@ -1,7 +1,7 @@
 <!--Banner e logo-->
 
 <h1 align="center">
-   <img align="center" src="https://github.com/rafa543/todoList-rocketeeat-Ignite-/blob/main/src/assets/Logo.png"/>
+   <img align="center" src="https://github.com/rafa543/todoList-rocketseat-ignite/blob/main/src/assets/Logo.png"/>
    App To.do
 </h1>
 
@@ -11,9 +11,9 @@
       <img alt="Rafael Araujo" src="https://img.shields.io/badge/-Rafael%20Araujo-273FAD?style=flat&logo=Linkedin&logoColor=white" />
    </a>
 
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/rafa543/todoList-rocketeeat-Ignite-?color=273FAD">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/rafa543/todoList-rocketseat-ignite?color=273FAD">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/rafa543/todoList-rocketeeat-Ignite-?color=273FAD">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/rafa543/todoList-rocketseat-ignite?color=273FAD">
   
 </p>
 
@@ -78,7 +78,7 @@ As funcionalidades foram desenhadas no **[Figma](https://www.figma.com/file/1XfZ
 ```bash
 
 # Clone o repositório
-git clone https://github.com/JoyceQuerubino/TodoList
+git clone https://github.com/rafa543/todoList-rocketseat-ignite
 
 # Instale as dependências
 npm install
