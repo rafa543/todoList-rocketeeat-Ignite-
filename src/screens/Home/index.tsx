@@ -1,54 +1,20 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Alert, FlatList, Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Empty from "../../components/Empty";
 import Separator from "../../components/Separator";
-import { loadTask } from "../../libs/storage";
 import Task from "../../components/Task";
 import { styles } from "./styles";
 
 interface Task {
+    id: number
     title: string;
     done: boolean;
 }
 
 export default function Home() {
-    const [todoList, setTodoList] = useState<string[]>([])
     const [newTask, setNewTask] = useState<Task[]>([])
     const [task, setTask] = useState("")
     const [inputSelected, setInputSelected] = useState(false)
-
-    useEffect(() => {
-        // loadTask()
-        
-        // async function loadTask2() {
-        //     const tasks = await loadTask()
-        //     setNewTask(tasks)
-        // }
-        // loadTask2()
-    }, []);
-
-
-
-    async function addTaskStorage() {
-        try {
-            await AsyncStorage.setItem("@tasks:task", JSON.stringify(newTask));
-            console.log('salvou')
-        } catch (error) {
-            Alert.alert("Deu Error")
-            throw new Error("Deu erro")
-        }
-    }
-
-    async function addCheckStorage() {
-        try {
-            AsyncStorage.setItem("@tasks:taskCheckd", JSON.stringify(todoList));
-            console.log('salvou')
-        } catch (error) {
-            console.log(error)
-            Alert.alert("Deu Error")
-        }
-    }
 
     function handleTaskAdd() {
         if (task === '') {
@@ -56,11 +22,11 @@ export default function Home() {
         }
 
         const Task: Task = {
+            id: new Date().getTime(),
             title: task,
             done: false
         }
         setNewTask(precState => [...precState, Task])
-        // addTaskStorage()
         setTask('')
     }
 
@@ -85,13 +51,11 @@ export default function Home() {
                 if (checked.done === true) {
                     item.done = true;
                 } else {
-                    console.log(item.done)
                     item.done = false;
                 }
             }
             return item
         }))
-        console.log(newTask)
 
     }
 
@@ -129,17 +93,17 @@ export default function Home() {
 
 
             {
-                todoList.length > 0 ? <></> : <Separator />
+                newTask.length > 0 ? <></> : <Separator />
             }
 
             <View style={{ flex: 1 }}>
                 <View style={{ marginHorizontal: 24 }}>
                     <FlatList
                         data={newTask}
-                        keyExtractor={item => item.title}
+                        keyExtractor={item => String(item.id)}
                         renderItem={({ item }) => (
                             <Task
-                                key={item.title}
+                                key={item.id}
                                 taskTitle={item.title}
                                 onRemove={() => handleRemoveTask(item.title)}
                                 onPress={handleMarkTaskAsDone}

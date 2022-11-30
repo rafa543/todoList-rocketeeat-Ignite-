@@ -1,10 +1,11 @@
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import { useState } from "react";
 import Checkbox from 'expo-checkbox';
 import { styles } from "./styles";
 import { Feather } from '@expo/vector-icons';
 
 interface Task {
+    id: number
     title: string;
     done: boolean;
 }
@@ -22,6 +23,7 @@ export default function Task({ taskTitle, onPress, onRemove }: Props) {
         setChecked(!isChecked)
 
         const task: Task = {
+            id: new Date().getTime(),
             title: taskTitle,
             done: !isChecked
         }
